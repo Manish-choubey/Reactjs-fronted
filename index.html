@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Editable Table</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@^6.26.0/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      *table {
+    width: 800px;
+    height: 200px;
+    border-collapse: collapse;
+    }
+    
+    th {
+    border-bottom: 1px solid black;
+    border: 2px solid black;
+    }
+    
+    td {
+    text-align: center;
+    border: 2px solid black;
+    }
+    
+    </style>
+  </head>
+  <body>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Month 1</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Onboarding Call</td>
+          <td><input type="text" name="status1"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(1)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Google Search Console Access</td>
+          <td><input type="text" name="status2"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(2)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Google Analytics Access</td>
+          <td><input type="text" name="status3"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(3)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Technical Audit</td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Technical Audit</td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Anchor Text and Semantic Analys  </td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Competitor Analysis Anchor Text/URL Mapping 1
+          </td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Website Access Google Data Studio Report Bocal Reporting Suite</td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Site Level Optimization
+          </td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Content Publishing
+
+          </td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Authority Niche Placements
+
+          </td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        <tr>
+          <td>Index Links </td>
+          <td><input type="text" name="status4"></td>
+          <td><input type="text" name="status4"></td>
+          <td><button onclick="sendData(4)">Edit</button></td>
+        </tr>
+        
+        <!-- Add more rows for the remaining tasks -->
+      </tbody>
+    </table>
+    <div id="root"></div>
+    <script  src ="./index.js"type="text/babel">
+      function sendData(id) {
+  const status = document.getElementsByName(`status${id}`)[0].value;
+  // Send data to API using AJAX or fetch() method
+  // Example:
+  fetch('/api/update-task', {
+    method: 'POST',
+    body: JSON.stringify({id, status}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => {
+    // Handle response from API
+    console.log(response);
+  })
+  .catch(error => {
+    // Handle error
+    console.error(error);
+  });
+}
+    
+    </script>
+  </body>
+</html>
